@@ -1,0 +1,48 @@
+<head>
+  <style>
+    * {
+      background-color: #1e1e2f;
+      color: white;
+    }
+    .grid {
+      display: grid;
+      padding-top: 100px;
+      gap: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    .centered {
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .title-container {
+      padding-bottom: 1em;
+    }
+    .title {
+      color: #f5c2e7;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<div style="position: fixed; top: 0; width: 100%; padding-bottom: 5px">
+  <h1 class="centered">{{.PageTitle}}</h1>
+  <hr />
+</div>
+<div class="grid">
+  {{range .Entries}}
+  <div>
+    <div class="centered">
+      <a href="{{.DirTarget}}">
+        {{ if .HasThumbnail }}
+        <img src="{{.Thumbnail}}" alt="" />
+        {{ else }}
+        <img src="/static/missing_thumb.png" alt="" />
+        {{ end }}
+      </a>
+    </div>
+    <div class="centered title-container">
+      <a class="title" href="/assets/{{.DirName}}">{{.DirName}}</a>
+    </div>
+  </div>
+  {{end}}
+</div>
