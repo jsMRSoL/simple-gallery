@@ -26,9 +26,14 @@ func (cfg *appConfig) handlerHome(w http.ResponseWriter, _ *http.Request) {
 
 	for dirName, dirEntry := range cfg.directoriesCache {
 		items := dirEntry.Media
-		random := rand.Intn(len(items))
-		hasThumbnail := items[random].HasThumbnail
-		thumbnail := items[random].Thumbnail
+		noItems := len(items)
+		hasThumbnail := false
+		thumbnail := ""
+		if noItems > 0 {
+			random := rand.Intn(len(items))
+			hasThumbnail = items[random].HasThumbnail
+			thumbnail = items[random].Thumbnail
+		}
 		entries = append(entries, Entry{
 			DirName:      dirName,
 			DirTarget:    dirEntry.DirTarget,
