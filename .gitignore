@@ -21,3 +21,6 @@
 go.work
 
 gallery
+*.bak
+tmp
+.air.toml
