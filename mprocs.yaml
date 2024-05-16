@@ -1,0 +1,4 @@
+procs:
+  server:
+    cmd: ["air"]
+    autostart: true
