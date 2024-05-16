@@ -4,6 +4,25 @@
       background-color: #1e1e2f;
       color: white;
     }
+    .banner {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding-bottom: 5px;
+    }
+    .flex-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .banner-right {
+      height: 100%;
+      min-width: 75px;
+    }
+    .pagetitle {
+      text-decoration: none;
+    }
     .grid {
       display: grid;
       padding-top: 100px;
@@ -23,9 +42,22 @@
       font-weight: bold;
     }
   </style>
+  <script src="/static/landing_page.js" type="text/javascript" defer></script>
 </head>
-<div style="position: fixed; top: 0; width: 100%; padding-bottom: 5px">
-  <h1 class="centered">{{.PageTitle}}</h1>
+<div class="banner">
+  <div class="flex-container">
+    <div id="left" style="min-width: 50px"></div>
+    <div id="center">
+      <a class="centered pagetitle" href="/home">
+        <h1>{{.PageTitle}}</h1>
+      </a>
+    </div>
+    <div id="right" class="banner-right">
+      <a href="/directories/update">
+        <img class="refresh-btn" src="/static/rescan_dir.svg" />
+      </a>
+    </div>
+  </div>
   <hr />
 </div>
 <div class="grid">

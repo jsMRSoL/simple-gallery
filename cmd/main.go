@@ -30,6 +30,7 @@ func main() {
 
 	mux.HandleFunc("/", cfg.handlerHome)
 	mux.HandleFunc("GET /directories/{dir}", cfg.handlerDirectory)
+	mux.HandleFunc("GET /directories/update", cfg.handlerScanNewDirectories)
 	mux.HandleFunc("GET /directories/update/{dir}", cfg.handlerRescanDirectory)
 
 	// static files for js and frontend ux resources

@@ -11,7 +11,7 @@ func (cfg *appConfig) handlerRescanDirectory(
 ) {
 	path := r.PathValue("dir")
 
-	cfg.RescanDirectory(path)
+	cfg.rescanDirectory(path)
 
 	tpl := cfg.templates["directory_page.html"]
 	media := cfg.directoriesCache[path].Media
@@ -24,7 +24,7 @@ func (cfg *appConfig) handlerRescanDirectory(
 	tpl.Execute(w, data)
 }
 
-func (cfg *appConfig) RescanDirectory(dir string) {
+func (cfg *appConfig) rescanDirectory(dir string) {
 	log.Printf("Rescanning for directory %s...", dir)
 	cfg.directoriesCache[dir] = makeDirEntry(dir, cfg.mediaRoot)
 }

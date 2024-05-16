@@ -14,11 +14,80 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
+    }
+    .banner-right {
+      height: 100%;
+      min-width: 75px;
+    }
+    .pagetitle {
+      text-decoration: none;
+    }
+    .rightnav {
+      position: fixed;
+      top: 100px;
+      right: -215px;
+      padding-top: 10px;
+      padding-left: 5px;
+      height: 100vh;
+      background-color: #050506;
+      width: 210px;
+      transition: right 1s;
+    }
+    .rightnav-visible {
+      right: 0;
+      border-left: 2px solid gray;
+    }
+    .rightnav * {
+      background-color: #050506;
+      text-decoration: none;
+    }
+    .nav-row {
+      color: inherit;
+      width: 100%;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+    .nav-row:hover {
+      background-color: white;
+      color: #050506;
+    }
+    .nav-col {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: inherit;
+      background-color: inherit;
+    }
+    .nav-action {
+      color: inherit;
+      background-color: inherit;
+      font-size: 20px;
+    }
+    .refresh-btn {
+      width: 25px;
+      height: 25px;
+      background-color: inherit;
+    }
+    .image-col {
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+    }
+    .image-col:hover {
+      color: black;
+    }
+    .hamburger-menu {
+      width: 35px;
+      height: 35px;
     }
     .grid {
       display: grid;
-      padding-top: 100px;
+      padding-top: 110px;
       gap: 1rem;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
@@ -92,10 +161,6 @@
       max-width: 250px;
       max-height: 250px;
     }
-    .refresh-btn {
-      width: 25px;
-      height: 25px;
-    }
   </style>
   <script src="/static/directory_page.js" type="text/javascript" defer></script>
 </head>
@@ -103,17 +168,39 @@
   <div class="flex-container">
     <div id="left" style="min-width: 50px"></div>
     <div id="center">
-      <a class="centered" href="/home">
+      <a class="centered pagetitle" href="/home">
         <h1>{{.PageTitle}}</h1>
       </a>
     </div>
-    <div id="right" style="min-width: 50px">
-      <a class="centered" href="/directories/update/{{.PageTitle}}">
-        <img class="refresh-btn" src="/static/rescan_dir.svg" />
-      </a>
+    <div id="right" class="banner-right">
+      <img class="hamburger-menu" src="/static/hamburger-menu.svg" />
     </div>
   </div>
   <hr />
+</div>
+<div class="rightnav">
+  <a class="" href="/directories/update/{{.PageTitle}}">
+    <div class="nav-row">
+      <div class="nav-col image-col">
+        <img class="refresh-btn" src="/static/rescan_dir.svg" />
+      </div>
+      <div class="nav-col">
+        <p class="nav-action">Rescan directory</p>
+      </div>
+    </div>
+  </a>
+  <div class="nav-row">
+    <div class="nav-col image-col"></div>
+    <div class="nav-col">
+      <p class="nav-action">Action two</p>
+    </div>
+  </div>
+  <div class="nav-row">
+    <div class="nav-col image-col"></div>
+    <div class="nav-col">
+      <p class="nav-action">Action three</p>
+    </div>
+  </div>
 </div>
 <div class="grid">
   {{range .Media}}

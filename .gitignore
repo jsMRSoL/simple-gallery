@@ -20,7 +20,7 @@
 # Go workspace file
 go.work
 
+target/
 gallery
 *.bak
 tmp
-.air.toml

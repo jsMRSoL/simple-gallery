@@ -4,6 +4,21 @@ const images = Array.from(imgs).map((im) => {
 });
 const image_count = images.length;
 
+const menu_btn = document.querySelector(".hamburger-menu");
+const right_menu = document.querySelector(".rightnav");
+
+menu_btn.addEventListener(
+  "click",
+  function() {
+    console.log("Got to here");
+    if (right_menu.classList.contains("rightnav-visible")) {
+      right_menu.classList.remove("rightnav-visible");
+      return;
+    }
+    right_menu.classList.add("rightnav-visible");
+  },
+  false,
+);
 // console.log(images);
 // console.log(image_count);
 const displayCanvas = document.querySelector(".media-container");
